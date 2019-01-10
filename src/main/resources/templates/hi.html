@@ -1,0 +1,45 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf体验</title>
+</head>
+<body>
+<div>
+<h1>插值 获取数据</h1>
+<p th:text="${num1}">数字</p>
+<p th:text="${str1}"></p>
+<p th:text="${work.name+'---'+work.city}"></p>
+    <p>
+        <input th:id="${work.id}" th:value="${work.id}">
+        <input th:value="${work.name}">
+    </p>
+<h1>指令的应用</h1>
+<p>
+<h3>循环指令 list</h3>
+<table width="500px" align="center" border="1">
+    <tr>
+        <th>序号</th>
+        <th>姓名</th>
+        <th>城市</th>
+    </tr>
+    <tbody>
+
+    <tr th:each="w:${works}">
+        <td align="center" th:text="${w.id}"></td>
+        <td align="center" th:text="${w.name}"></td>
+        <td align="center" th:text="${w.city}"></td>
+    </tr>
+    </tbody>
+</table>
+</p>
+<p>
+    <a th:if="${user} ==null " href="/helloapp.do">登录</a>
+    <a th:if="${user} !=null " href="/helloapp.do">我的账号</a>
+</p>
+
+</div>
+
+
+</body>
+</html>
